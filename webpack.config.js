@@ -1,6 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+// const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
@@ -38,9 +38,8 @@ module.exports = {
       title: 'Лидер поиска',
       filename: 'index.html',
       template: './src/index.html',
-
     }),
-    new FaviconsWebpackPlugin('./assets/icons/logo.svg'),
+    // ,
+    // new FaviconsWebpackPlugin('./assets/icons/logo.svg'),
   ],
-
 };

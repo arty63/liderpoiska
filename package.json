@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack",
     "start": "webpack serve --open",
-    "lint": "eslint --ext .js src/ -- --fix"
+    "lint": "eslint --ext .js src/"
   },
   "author": "arty63",
   "license": "ISC",
@@ -16,10 +16,8 @@
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
-    "favicons": "^7.0.0-beta.4",
-    "favicons-webpack-plugin": "^5.0.2",
     "html-webpack-plugin": "^5.5.0",
-    "prettier": "2.7.1",
+    "prettier": "^2.7.1",
     "sass": "^1.54.3",
     "sass-loader": "^13.0.2",
     "style-loader": "^3.3.1",
