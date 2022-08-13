@@ -156,6 +156,7 @@ $color-blue: #296DC1;
     &:hover{
         padding: 10px 0px;
         transition: 0.2s;
+        cursor: pointer;
     }
     &:hover>:nth-child(2){
         margin: 4px 20px 15px 20px;
@@ -212,9 +213,6 @@ $color-blue: #296DC1;
     text-align: center;
     margin: 34px 20px 15px 20px;
     box-sizing: border-box;
-    &:hover{
-        cursor: pointer;
-    }
     @media (max-width:930px) {
         margin: 15px 60px 15px 60px
     }

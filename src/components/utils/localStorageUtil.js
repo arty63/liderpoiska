@@ -8,7 +8,7 @@ export class LocalStorageUtil {
     if (productInLocalStorage !== null) {
       return JSON.parse(productInLocalStorage);
     }
-    return [];
+    return []; 
   }
 
   putProducts(id) {
@@ -27,3 +27,4 @@ export class LocalStorageUtil {
   }
 }
 
+export const localStorageUtil = new LocalStorageUtil();

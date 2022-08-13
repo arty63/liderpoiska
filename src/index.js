@@ -1,34 +1,34 @@
-import { AppView } from './components/veiw/AppView';
+import { AppView } from './components/AppView';
 import './style.scss';
-import { LocalStorageUtil } from './components/utils/localStorageUtil';
+// import { LocalStorageUtil } from './components/utils/localStorageUtil';
 
 const view = new AppView();
 view.view();
 
-const buttons = document.querySelectorAll('.goods__button');
-const cartQuant = document.querySelector('.cart__quantity');
+// const buttons = document.querySelectorAll('.goods__button');
+// const cartQuant = document.querySelector('.cart__quantity');
 
-let countGoods = 0;
+// let countGoods = 0;
 
-function sumOfGoods() {
-  countGoods += 1;
-  cartQuant.classList.add('active');
-  cartQuant.innerHTML = countGoods;
-}
-buttons.forEach(elm => elm.addEventListener('click', sumOfGoods));
+// function sumOfGoods() {
+//   countGoods += 1;
+//   cartQuant.classList.add('active');
+//   cartQuant.innerHTML = countGoods;
+// }
+// buttons.forEach(elm => elm.addEventListener('click', sumOfGoods));
 
-const goodsInBsket = [];
+// const goodsInBsket = [];
 
-buttons.forEach(elm =>
-  elm.addEventListener('click', event => {
-    goodsInBsket.push(event.target.dataset.num);
-    elm.textContent = elm.textContent.replace(
-      'Добавить в корзину',
-      'В корзине',
-    );
-    elm.classList.toggle('active-btn');
-  }),
-);
+// buttons.forEach(elm =>
+//   elm.addEventListener('click', event => {
+//     goodsInBsket.push(event.target.dataset.num);
+//     elm.textContent = elm.textContent.replace(
+//       'Добавить в корзину',
+//       'В корзине',
+//     );
+//     elm.classList.toggle('active-btn');
+//   }),
+// );
 
 /*= ======================BASKET====================================== */
 
