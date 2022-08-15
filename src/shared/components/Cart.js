@@ -11,7 +11,7 @@ export class Cart {
     cart.classList.add('cart');
 
     const cartLink = document.createElement('a');
-    cartLink.href = './pages/cart.html';
+    cartLink.href = './cart.html';
     cartLink.classList.add('cart__link');
     cartLink.textContent = 'Корзина';
     cart.appendChild(cartLink);

@@ -38,7 +38,13 @@ module.exports = {
       title: 'Лидер поиска',
       filename: 'index.html',
       template: './src/index.html',
+      chunks: ['main']
     }),
-  
+    new HtmlWebpackPlugin({
+      title: 'Корзина',
+      filename: 'cart.html',
+      template: './src/pages/cart.html',
+      chunks: ['exampleEntry']
+    }),
   ],
 };
