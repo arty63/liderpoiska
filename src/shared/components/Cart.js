@@ -1,10 +1,9 @@
-import { localStorageUtil } from "../../components/utils/localStorageUtil";
-
+import { localStorageUtil } from '../../components/utils/localStorageUtil';
 
 export class Cart {
+  goods = localStorageUtil.getProducts();
 
-    goods = localStorageUtil.getProducts();
-    cartCount = this.goods.length;
+  cartCount = this.goods.length;
 
   render() {
     const cart = document.createElement('div');
@@ -21,13 +20,14 @@ export class Cart {
     cartQuantity.textContent = this.cartCount;
     cart.appendChild(cartQuantity);
 
-    if (this.cartCount!=0) {
-      cartQuantity.classList.add('active')
-    }else {
-      cartQuantity.classList.remove('active')
+    if (this.cartCount !== 0) {
+      cartQuantity.classList.add('active');
+      cartLink.disabled = false;
+    } else {
+      cartQuantity.classList.remove('active');
+      cartLink.disabled = true;
+      cartLink.addEventListener('click', event => event.preventDefault());
     }
-
     return cart;
-  
   }
 }

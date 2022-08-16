@@ -1,12 +1,14 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-
 module.exports = {
-  entry: './src/index.js',
+  entry: {
+    main: './src/index.js',
+    cart: './src/pages/cart.js',
+  },
   mode: 'development',
   output: {
-    filename: 'bundle.js',
+    filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
   },
@@ -29,7 +31,6 @@ module.exports = {
       },
     ],
   },
-  // devtool: 'inline-source-map',
   devServer: {
     static: './dist',
   },
@@ -38,13 +39,13 @@ module.exports = {
       title: 'Лидер поиска',
       filename: 'index.html',
       template: './src/index.html',
-      chunks: ['main']
+      chunks: ['main'],
     }),
     new HtmlWebpackPlugin({
-      title: 'Корзина',
+      title: 'Лидер поиска - Корзина',
       filename: 'cart.html',
       template: './src/pages/cart.html',
-      chunks: ['exampleEntry']
+      chunks: ['exampleEntry'],
     }),
   ],
 };
