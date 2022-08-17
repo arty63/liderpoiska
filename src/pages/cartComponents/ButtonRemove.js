@@ -12,6 +12,10 @@ class ButtonRemove {
     btnRemove.appendChild(btnRemoveX);
     btnRemove.appendChild(btnText);
 
+    btnRemove.addEventListener('click', event => {
+      
+      event.target.closest('.basket__item').remove();
+  })
     return btnRemove;
   }
 }

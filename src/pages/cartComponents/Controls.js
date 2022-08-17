@@ -1,5 +1,8 @@
+// eslint-disable-next-line import/no-cycle
+import { item } from './BasketItem';
+
 class Controls {
-  render() {
+  render(quantity) {
     const controls = document.createElement('div');
     controls.classList.add('control-buttons');
 
@@ -8,6 +11,7 @@ class Controls {
 
     const sum = document.createElement('span');
     sum.classList.add('control-buttons__sum');
+    sum.textContent = `${quantity}`;
 
     const btnPlus = document.createElement('p');
     btnPlus.classList.add('control-buttons__plus');
@@ -16,6 +20,9 @@ class Controls {
     controls.appendChild(sum);
     controls.appendChild(btnPlus);
 
+    btnPlus.addEventListener('click', () => {
+      item.setAddQuantity();
+    });
     return controls;
   }
 }

@@ -1,7 +1,12 @@
+/* eslint-disable import/no-cycle */
 import { remove } from './ButtonRemove';
 import { controls } from './Controls';
 
 class BasketItem {
+  id = this.obj.id;
+
+  quantity = 1;
+
   render(obj) {
     const item = document.createElement('div');
     item.classList.add('basket__item');
@@ -17,15 +22,21 @@ class BasketItem {
 
     const price = document.createElement('p');
     price.classList.add('goods__price');
-    price.textContent = `${obj.price}₽`;
+    price.textContent = `${obj.price * this.quantity} ₽`;
 
     item.appendChild(picture);
     item.appendChild(description);
-    item.appendChild(controls.render());
+    item.appendChild(controls.render(this.quantity));
     item.appendChild(price);
     item.appendChild(remove.render());
 
     return item;
+  }
+
+  setAddQuantity() {
+    this.quantity++;
+    console.log(this);
+    return this.quantity;
   }
 }
 export const item = new BasketItem();
