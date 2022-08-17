@@ -3,7 +3,7 @@ import { remove } from './ButtonRemove';
 import { controls } from './Controls';
 
 class BasketItem {
-  id = this.obj.id;
+
 
   quantity = 1;
 
