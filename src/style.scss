@@ -432,19 +432,14 @@ $color-blue: #296DC1;
             &:hover{
                 cursor: pointer;
                 background-color: $color-blue;
-                
-                
-                &.btn-remove{
-                    &::after{
-                        content: "";
-                        background-color: #fff;
-                    }
-                    &::before{
-                        content: "";
-                        background-color: #fff;
-                    }
+                .btn-remove::after{
+                    content: "";
+                    background-color: #fff;
                 }
-                
+                .btn-remove::before{
+                    content: "";
+                    background-color: #fff;
+                }
                 @media (max-width:931px) {
                     background-color: lighten(#296DC1, $amount: 10%);;
             
@@ -452,8 +447,10 @@ $color-blue: #296DC1;
             }
 }
 .btn-remove{
-    
-    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
     &::after{
         content: "";
         padding: 1px;

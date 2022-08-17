@@ -3,13 +3,13 @@ class Controls {
     const controls = document.createElement('div');
     controls.classList.add('control-buttons');
 
-    const btnMin = document.createElement('button');
+    const btnMin = document.createElement('p');
     btnMin.classList.add('control-buttons__minus');
 
     const sum = document.createElement('span');
     sum.classList.add('control-buttons__sum');
 
-    const btnPlus = document.createElement('button');
+    const btnPlus = document.createElement('p');
     btnPlus.classList.add('control-buttons__plus');
 
     controls.appendChild(btnMin);

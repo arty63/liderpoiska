@@ -1,6 +1,6 @@
 class ButtonRemove {
   render() {
-    const btnRemove = document.createElement('button');
+    const btnRemove = document.createElement('div');
     btnRemove.classList.add('control-buttons__remove');
 
     const btnRemoveX = document.createElement('div');

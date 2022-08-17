@@ -17,7 +17,7 @@ class BasketItem {
 
     const price = document.createElement('p');
     price.classList.add('goods__price');
-    price.textContent = `${obj.price}`;
+    price.textContent = `${obj.price}₽`;
 
     item.appendChild(picture);
     item.appendChild(description);
