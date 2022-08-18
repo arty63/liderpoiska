@@ -5,7 +5,7 @@ export class CartButton {
 
   buttonPushed = 'В корзине';
 
-  id = this.id;
+  // id = this.id;
 
   renderButton(id) {
     const productStore = localStorageUtil.getProducts();
@@ -13,20 +13,19 @@ export class CartButton {
     const goodsButton = document.createElement('a');
     goodsButton.classList.add('goods__button');
     goodsButton.textContent = this.buttonText.toUpperCase();
-    this.id = id;
-    if (productStore.includes(this.id)) {
+    if (productStore.includes(id)) {
       goodsButton.classList.add('active-btn');
     }
     goodsButton.addEventListener('click', () => {
       if (goodsButton.classList.contains('active-btn')) {
         goodsButton.classList.remove('active-btn');
         goodsButton.textContent = this.buttonText.toUpperCase();
-        localStorageUtil.putProducts(this.id);
+        localStorageUtil.putProducts(id);
         this.removeGoods();
       } else {
         goodsButton.classList.add('active-btn');
         goodsButton.textContent = this.buttonPushed.toUpperCase();
-        localStorageUtil.putProducts(this.id);
+        localStorageUtil.putProducts(id);
         this.addGoods();
       }
     });
@@ -39,7 +38,7 @@ export class CartButton {
     let cartText = cartElem.textContent - 0;
     cartText++;
     cartElem.textContent = cartText;
-    if (cartText !== 0) {
+    if (cartText > 0) {
       cartElem.classList.add('active');
       cartLink.href = './cart.html';
     } else {
@@ -54,7 +53,7 @@ export class CartButton {
     let cartText = cartElem.textContent - 0;
     cartText--;
     cartElem.textContent = cartText;
-    if (cartText !== 0) {
+    if (cartText > 0) {
       cartElem.classList.add('active');
       cartLink.href = './cart.html';
     } else {
@@ -63,3 +62,4 @@ export class CartButton {
     }
   }
 }
+export const goodsButton = new CartButton();

@@ -19,12 +19,11 @@ export class Cart {
     cartQuantity.textContent = this.cartCount;
     cart.appendChild(cartQuantity);
 
-    if (this.cartCount !== 0) {
+    if (this.cartCount > 0) {
       cartQuantity.classList.add('active');
       cartLink.href = './cart.html';
     } else {
       cartQuantity.classList.remove('active');
-      // cartLink.addEventListener('click', event => event.preventDefault());
       cartLink.removeAttribute('href');
     }
     return cart;

@@ -1,4 +1,4 @@
-import { CartButton } from './Button';
+import { goodsButton } from './Button';
 
 export class Card {
   createElement(name, price, source, id) {
@@ -25,8 +25,6 @@ export class Card {
     const goodsPrice = document.createElement('p');
     goodsPrice.classList.add('goods__price');
     goodsPrice.textContent = `${obj.price} ₽`;
-
-    const goodsButton = new CartButton();
 
     goodsItem.appendChild(goodsImg);
     goodsItem.appendChild(goodsDescription);
