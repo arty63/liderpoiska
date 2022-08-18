@@ -10,7 +10,6 @@ export class Cart {
     cart.classList.add('cart');
 
     const cartLink = document.createElement('a');
-    cartLink.href = './cart.html';
     cartLink.classList.add('cart__link');
     cartLink.textContent = 'Корзина';
     cart.appendChild(cartLink);
@@ -22,11 +21,11 @@ export class Cart {
 
     if (this.cartCount !== 0) {
       cartQuantity.classList.add('active');
-      // cartLink.disabled = false;
+      cartLink.href = './cart.html';
     } else {
       cartQuantity.classList.remove('active');
-      // cartLink.disabled = true;
       // cartLink.addEventListener('click', event => event.preventDefault());
+      cartLink.removeAttribute('href');
     }
     return cart;
   }

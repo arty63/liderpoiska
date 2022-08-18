@@ -40,12 +40,14 @@ module.exports = {
       filename: 'index.html',
       template: './src/index.html',
       chunks: ['main'],
+      favicon: './assets/icons/logo.png',
     }),
     new HtmlWebpackPlugin({
       title: 'Лидер поиска - Корзина',
       filename: 'cart.html',
       template: './src/pages/cart.html',
       chunks: ['exampleEntry'],
+      favicon: './assets/icons/logo.png',
     }),
   ],
 };

@@ -2,7 +2,9 @@ import { localStorageUtil } from '../../components/utils/localStorageUtil';
 
 export class CartButton {
   buttonText = 'Добавить в корзину';
+
   buttonPushed = 'В корзине';
+
   id = this.id;
 
   renderButton(id) {
@@ -25,7 +27,7 @@ export class CartButton {
         goodsButton.classList.add('active-btn');
         goodsButton.textContent = this.buttonPushed.toUpperCase();
         localStorageUtil.putProducts(this.id);
-        this.addGoods()
+        this.addGoods();
       }
     });
     return goodsButton;
@@ -33,32 +35,31 @@ export class CartButton {
 
   addGoods() {
     const cartElem = document.querySelector('.cart__quantity');
-    const cartLink = document.querySelector('.cart__link')
+    const cartLink = document.querySelector('.cart__link');
     let cartText = cartElem.textContent - 0;
     cartText++;
-    cartElem.textContent = cartText; 
-    if (cartText!== 0) {
+    cartElem.textContent = cartText;
+    if (cartText !== 0) {
       cartElem.classList.add('active');
-      cartLink.disabled = false;
+      cartLink.href = './cart.html';
     } else {
       cartElem.classList.remove('active');
-      cartLink.disabled = true;
-      cartLink.addEventListener('click', event => event.preventDefault());
+      cartLink.removeAttribute('href');
+    }
   }
-}
+
   removeGoods() {
     const cartElem = document.querySelector('.cart__quantity');
-    const cartLink = document.querySelector('.cart__link')
+    const cartLink = document.querySelector('.cart__link');
     let cartText = cartElem.textContent - 0;
     cartText--;
-    cartElem.textContent = cartText; 
-    if (cartText!== 0) {
+    cartElem.textContent = cartText;
+    if (cartText !== 0) {
       cartElem.classList.add('active');
-      cartLink.disabled = false;
+      cartLink.href = './cart.html';
     } else {
       cartElem.classList.remove('active');
-      cartLink.disabled = true;
-      cartLink.addEventListener('click', event => event.preventDefault());
+      cartLink.removeAttribute('href');
     }
-  };
-};
+  }
+}

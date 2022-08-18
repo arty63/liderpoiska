@@ -34,7 +34,6 @@ class BasketItem {
 
   setAddQuantity() {
     this.quantity++;
-    console.log(this);
     return this.quantity;
   }
 }
