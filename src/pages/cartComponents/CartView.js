@@ -7,7 +7,5 @@ export class CartView {
     header.render();
     main.render();
     footer.render();
-    //  const box = document.querySelector('.basket');
-    // PRODUCTS.map(el => box.appendChild(card.renderCard(el)));
   }
 }

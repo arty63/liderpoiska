@@ -1,3 +1,5 @@
+import { localStorageUtil } from '../../components/utils/localStorageUtil';
+
 class ButtonRemove {
   render() {
     const btnRemove = document.createElement('div');
@@ -13,9 +15,11 @@ class ButtonRemove {
     btnRemove.appendChild(btnText);
 
     btnRemove.addEventListener('click', event => {
-      
+      localStorageUtil.putProducts(
+        event.target.closest('.basket__item').dataset.id - 0,
+      );
       event.target.closest('.basket__item').remove();
-  })
+    });
     return btnRemove;
   }
 }

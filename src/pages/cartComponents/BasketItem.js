@@ -3,13 +3,12 @@ import { remove } from './ButtonRemove';
 import { controls } from './Controls';
 
 class BasketItem {
-
-
   quantity = 1;
 
   render(obj) {
     const item = document.createElement('div');
     item.classList.add('basket__item');
+    item.dataset.id = `${obj.id}`;
 
     const picture = document.createElement('img');
     picture.classList.add('goods__pictures');
