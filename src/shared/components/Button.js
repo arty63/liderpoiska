@@ -2,18 +2,8 @@ import { localStorageUtil } from '../../components/utils/localStorageUtil';
 
 export class CartButton {
   buttonText = 'Добавить в корзину';
-
   buttonPushed = 'В корзине';
-
   id = this.id;
-
-  count = 0;
-
-  state = false;
-
-  cartText = document.querySelector('.cart__quantity').textContent - 0;
-
-  cart = this.count;
 
   renderButton(id) {
     const productStore = localStorageUtil.getProducts();
@@ -29,23 +19,46 @@ export class CartButton {
       if (goodsButton.classList.contains('active-btn')) {
         goodsButton.classList.remove('active-btn');
         goodsButton.textContent = this.buttonText.toUpperCase();
-        this.state = false;
         localStorageUtil.putProducts(this.id);
+        this.removeGoods();
       } else {
         goodsButton.classList.add('active-btn');
-        this.count = true;
         goodsButton.textContent = this.buttonPushed.toUpperCase();
         localStorageUtil.putProducts(this.id);
+        this.addGoods()
       }
     });
     return goodsButton;
   }
 
-  addGood() {
-    this.count++;
-  }
-
-  removeGood() {
-    this.count--;
+  addGoods() {
+    const cartElem = document.querySelector('.cart__quantity');
+    const cartLink = document.querySelector('.cart__link')
+    let cartText = cartElem.textContent - 0;
+    cartText++;
+    cartElem.textContent = cartText; 
+    if (cartText!== 0) {
+      cartElem.classList.add('active');
+      cartLink.disabled = false;
+    } else {
+      cartElem.classList.remove('active');
+      cartLink.disabled = true;
+      cartLink.addEventListener('click', event => event.preventDefault());
   }
 }
+  removeGoods() {
+    const cartElem = document.querySelector('.cart__quantity');
+    const cartLink = document.querySelector('.cart__link')
+    let cartText = cartElem.textContent - 0;
+    cartText--;
+    cartElem.textContent = cartText; 
+    if (cartText!== 0) {
+      cartElem.classList.add('active');
+      cartLink.disabled = false;
+    } else {
+      cartElem.classList.remove('active');
+      cartLink.disabled = true;
+      cartLink.addEventListener('click', event => event.preventDefault());
+    }
+  };
+};

@@ -22,11 +22,11 @@ export class Cart {
 
     if (this.cartCount !== 0) {
       cartQuantity.classList.add('active');
-      cartLink.disabled = false;
+      // cartLink.disabled = false;
     } else {
       cartQuantity.classList.remove('active');
-      cartLink.disabled = true;
-      cartLink.addEventListener('click', event => event.preventDefault());
+      // cartLink.disabled = true;
+      // cartLink.addEventListener('click', event => event.preventDefault());
     }
     return cart;
   }
