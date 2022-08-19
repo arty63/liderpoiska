@@ -20,16 +20,16 @@ $color-blue: #296DC1;
     max-width: 1170px;
     margin: 0 auto;
     //padding: 0px 20px;
-    @media (max-width:1171px){
+    @media (max-width:1169.9px){
             max-width:930px;     
     }
-    @media (max-width:931px) {
+    @media (max-width:929.9px) {
             max-width: 690px;
     }
-    @media (max-width:691px) {
+    @media (max-width:689.9px) {
         max-width: 510px;
     }
-    @media (max-width:511px) {
+    @media (max-width:509.9px) {
         max-width: 320px;
     }
    
@@ -40,18 +40,40 @@ $color-blue: #296DC1;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    @media (max-width:689.9px) {
+        margin: 29px auto 0;
+    }
+    @media (max-width:509.9px) {
+        max-width: 290px;
+        margin: 29px auto 0;
+
+    }
 }
 .logo {
     background-image: url(../assets/icons/logo.svg);
     width: 215px;
     height: 37px;
+    @media (max-width:689.9px) {
+        width: 180px;
+        height: 29px;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+    @media (max-width:509.9px) {
+        max-width: 320px;
+    }
 }
 .cart {
     max-width: 142px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-   
+    @media (max-width:689.9px) {
+        max-width: 56px;
+    }
+    @media (max-width:509.9px) {
+        max-width: 56px;
+    }
 }
 .cart__link {
     text-decoration: none;
@@ -76,7 +98,7 @@ $color-blue: #296DC1;
             filter: invert(34%) sepia(96%) saturate(1504%) hue-rotate(116deg) brightness(95%) contrast(103%);
         }
     }
-    @media (max-width:691px) {
+    @media (max-width:689.9px) {
         color:transparent;
         background-image: url('../assets/icons/Fill.svg');
         width: 28px;
@@ -98,7 +120,7 @@ $color-blue: #296DC1;
     line-height: 21px;
     text-align: center;
     background-color: $color-green;
-    width: 21px;
+    min-width: 21px;
     height: 21px;
     border-radius: 100%;
     margin-left: 10px;
@@ -107,20 +129,20 @@ $color-blue: #296DC1;
 .main {
     margin: 60px auto 30px;
     width: 100%;
-    @media (max-width:1171px){
-        max-width: 930px;
+    @media (max-width:1169.9px){
+        max-width: 890px;
         margin: 60px auto 70px;
     }
-    @media (max-width:931px) {
-        max-width: 690px;
+    @media (max-width:929.9px) {
+        max-width: 452px;
         margin: 60px auto 70px;
     }
-    @media (max-width:691px) {
-        max-width: 510px;
-        margin: 0 auto;
+    @media (max-width:689.9px) {
+        max-width: 452px;
+        margin: 76px auto 0;
     }
-    @media (max-width:511px) {
-        max-width: 320px;
+    @media (max-width:509.9px) {
+        max-width: 270px;
         margin: 50px auto 0px;
     }
 }
