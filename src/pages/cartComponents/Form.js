@@ -1,4 +1,10 @@
+import { popup } from './Popup';
+
 class Form {
+  // name = inputText.value
+  // phoneNumber = inputPhone.value
+  // email = inputEmail.value
+
   render() {
     const boxForm = document.createElement('div');
     boxForm.classList.add('person-form');
@@ -11,21 +17,24 @@ class Form {
     form.classList.add('person-form__form');
 
     const inputText = document.createElement('input');
-    inputText.type = 'tel';
+    inputText.id = 'input-name';
+    inputText.type = 'text';
     inputText.placeholder = 'Ваше имя';
     inputText.classList.add('person-form__place');
     inputText.autocomplete = 'off';
     inputText.required = true;
 
     const inputPhone = document.createElement('input');
-    inputPhone.type = 'text';
+    inputPhone.id = 'input-phone';
+    inputPhone.type = 'tel';
     inputPhone.placeholder = 'Телефон';
     inputPhone.classList.add('person-form__place');
     inputPhone.autocomplete = 'off';
-    inputPhone.pattern = '+7-[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}';
     inputPhone.required = true;
+    inputPhone.maxLength = 22;
 
     const inputEmail = document.createElement('input');
+    inputPhone.id = 'input-email';
     inputEmail.type = 'email';
     inputEmail.placeholder = 'Email';
     inputEmail.classList.add('person-form__place');
@@ -36,12 +45,36 @@ class Form {
     btnSubmit.type = 'submite';
     btnSubmit.classList.add('person-form__button');
     btnSubmit.textContent = 'оформить заказ';
+    btnSubmit.addEventListener(
+      'click',
+      popup.render(inputText.value, inputPhone.value, inputEmail.value),
+    );
 
-    if (inputEmail.value && inputText.value) {
-      btnSubmit.disabled = false;
-    } else {
-      btnSubmit.disabled = true;
-    }
+    inputPhone.addEventListener('focus', _ => {
+      if (!/^\+\d*$/.test(inputPhone.value)) inputPhone.value = '+7';
+    });
+
+    inputPhone.addEventListener('keypress', e => {
+      if (!/\d/.test(e.key)) e.preventDefault();
+      if (inputPhone.value.length == 2) {
+        inputPhone.value += ' (';
+      }
+      if (inputPhone.value.length == 7) {
+        inputPhone.value += ') ';
+      }
+      if (inputPhone.value.length == 12) {
+        inputPhone.value += ' - ';
+      }
+      if (inputPhone.value.length == 17) {
+        inputPhone.value += ' - ';
+      }
+      if (inputEmail.value && inputText.value && /\d/.test(inputPhone.value)) {
+        btnSubmit.disabled = false;
+      } else {
+        btnSubmit.disabled = true;
+      }
+    });
+
     boxForm.appendChild(title);
     title.appendChild(form);
     form.appendChild(inputText);
@@ -53,13 +86,3 @@ class Form {
   }
 }
 export const form = new Form();
-
-/* <div class="person-form">
-<h2 class="person-form__title"></h2>
-<form action="" class="person-form__form" > 
-    <input type="text" name="name" id="name" placeholder="Ваше имя" class="person-form__place" autocomplete="off" >
-    <input type="tel" name="phone" id="phone" placeholder="Телефон" class="person-form__place" autocomplete="off" pattern="\+7\-[0-9]{3}\-[0-9]{3}\-[0-9]{2}\-[0-9]{2}">
-    <input type="email" name="email" id="email" placeholder="Email" class="person-form__place" autocomplete="off">
-    <button type="submit" class="person-form__button" disabled>оформить заказ</button>
-</form>
-</div> */

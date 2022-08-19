@@ -45,7 +45,7 @@ $color-blue: #296DC1;
     }
     @media (max-width:509.9px) {
         max-width: 290px;
-        margin: 29px auto 0;
+        margin: 27px auto 0;
 
     }
 }
@@ -60,7 +60,8 @@ $color-blue: #296DC1;
         background-size: contain;
     }
     @media (max-width:509.9px) {
-        max-width: 320px;
+        width: 180px;
+        height: 30.03px;
     }
 }
 .cart {
@@ -153,6 +154,12 @@ $color-blue: #296DC1;
     line-height: 130%;
     text-align: center;
     margin-bottom: 40px;
+    @media (max-width:889.9px) {
+        margin-bottom: 30px;
+    }
+    @media (max-width:509.9px) {
+        font-size: 26px;
+    }
 }
 .goods {
     display: flex;
@@ -160,7 +167,7 @@ $color-blue: #296DC1;
     flex-wrap: wrap;
     align-items: center;
     margin: 0;
-    @media (max-width:930px) {
+    @media (max-width:929.9px) {
         justify-content: center;
     }
 }
@@ -172,60 +179,68 @@ $color-blue: #296DC1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content:space-between ;
+    justify-content: flex-start;
     box-sizing: border-box;
     margin-bottom: 40px;
+    position: relative;
     &:hover{
         padding: 10px 0px;
         transition: 0.2s;
         cursor: pointer;
     }
+    &:hover>:nth-child(3){
+        bottom: 65px;
+    }
     &:hover>:nth-child(2){
         margin: 4px 20px 15px 20px;
     }
     &:hover>:last-child{
+        
         visibility: visible;
         transition: 0.2s;
         cursor: pointer;
         display: block;
     }
-    @media (max-width:930px) {
+    @media (max-width:929.9px) {
         padding: 20px 0px;
         width: 450px;
         height: 590px;
         &:hover{
             padding: 20px 0px;
-        }
-        &:hover>:nth-child(2){
-            margin: 15px 60px 15px 60px;
-        }
-        &:hover>:last-child{
-            visibility: visible;
             transition: 0.2s;
             cursor: pointer;
-            display: block;
+        }
+        &:hover>:nth-child(2){
+            margin: 15px 60px 0px 60px;
+        }
+        &:hover>:nth-child(3){
+            bottom: 73px;
         }
     }
-    @media (max-width:511px) {
+    @media (max-width:509.9px) {
         width: 270px;
         height: 380px;
         padding: 10px 0;
+        margin-bottom: 30px;
         &:hover{
             padding: 10px 0px;
         }
         &:hover>:nth-child(2){
             margin: 4px 20px 15px 20px;
         }
+        &:hover>:nth-child(3){
+            bottom: 65px;
+        }
     }
 }
 .goods__pictures {
     width: 200px;
     height: 200px;
-    @media (max-width:930px) {
+    @media (max-width:929.9px) {
         width: 400px;
         height: 400px;
     }
-    @media (max-width:511px) {
+    @media (max-width:509.9px) {
         width: 200px;
         height: 200px;
     }
@@ -235,10 +250,10 @@ $color-blue: #296DC1;
     text-align: center;
     margin: 34px 20px 15px 20px;
     box-sizing: border-box;
-    @media (max-width:930px) {
-        margin: 15px 60px 15px 60px
+    @media (max-width:929.9px) {
+        margin: 15px 60px 0px 60px
     }
-    @media (max-width:511px) {
+    @media (max-width:509.9px) {
         margin: 4px 20px 15px 20px;
     }
 }
@@ -247,6 +262,17 @@ $color-blue: #296DC1;
     font-weight: 700;
     font-size: 18px;
     margin: 0;
+    position: absolute;
+    bottom: 35px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    @media (max-width:929.9px) {
+        bottom: 73px;
+    }
+    @media (max-width:509.9px) {
+        bottom: 65px;
+    }
 }
 .goods__button {
     box-sizing: border-box;
@@ -266,13 +292,22 @@ $color-blue: #296DC1;
     text-transform: uppercase;  
     display: none;
     transition: 0.2s;
+    position: absolute;
+    bottom: 10px;
     cursor: pointer;
     &:active{
         background-color: $color-green;
     }
     
-    @media (max-width:930px) {
+    @media (max-width:929.9px) {
         display: block;
+        bottom: 20px;
+    }
+    @media (max-width:689.9px) {
+        bottom: 20px;
+    }
+    @media (max-width:509.9px) {
+        bottom: 10px;
     }
 }
 .active{
@@ -288,6 +323,10 @@ $color-blue: #296DC1;
     height: 36px;
     border-top: 1px solid #A8AFBB;
     margin-bottom: 21px ;
+    @media (max-width:509.9px) {
+        max-width: 290px;
+        margin: 18px auto 0
+    }
 }
 .footer__descrition{
     color: #7C828B;
@@ -295,6 +334,7 @@ $color-blue: #296DC1;
     font-size: 12px;
     text-align: start;
     margin-top: 20px;
+
 }
 .basket{
     margin-bottom: 30px;
@@ -305,20 +345,19 @@ $color-blue: #296DC1;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 20px;
     padding-bottom: 40px;
     border-bottom: 1px solid #A8AFBB;
-    @media (max-width:931px) {
+    @media (max-width:929.9px) {
         justify-content: center;
         flex-direction: column;
         height: 605px;
         gap: 15px;
         padding-bottom: 30px;
     }
-    @media (max-width:691px) {
+    @media (max-width:689.9px) {
         
     }
-    @media (max-width:511px) {
+    @media (max-width:509.9px) {
         margin-top: 40px;
     }
     .goods__pictures{
@@ -333,7 +372,7 @@ $color-blue: #296DC1;
     .goods__description{
         max-width: 270px;
         text-align: start;
-        @media (max-width:931px) {
+        @media (max-width:929.9px) {
             margin: 0px 0px;
             text-align: center;
     
@@ -422,6 +461,19 @@ $color-blue: #296DC1;
                 }      
             }
         }
+        
+    }
+    .goods__price {
+        position: relative;
+        bottom: 0;
+        @media (max-width:929.9px) {
+       
+            
+        }
+        @media (max-width:509.9px) {
+
+            
+        }
     }
   }
 .control-buttons__remove{
@@ -462,7 +514,7 @@ $color-blue: #296DC1;
                     content: "";
                     background-color: #fff;
                 }
-                @media (max-width:931px) {
+                @media (max-width:929.9px) {
                     background-color: lighten(#296DC1, $amount: 10%);;
             
                 }      
@@ -540,7 +592,8 @@ $color-blue: #296DC1;
     justify-content:flex-start;
     gap: 30px;
     width: 100%;
-    
+
+    padding-top: 30px;
 }
 .person-form__place {
     box-sizing: border-box;

@@ -9,7 +9,7 @@ export class AppView {
     const card = new Card();
     header.render();
     main.render();
-    footer.render();
+    footer.render('#wrapper');
     const box = document.querySelector('.goods');
     PRODUCTS.map(el => box.appendChild(card.renderCard(el)));
   }

@@ -5,8 +5,6 @@ export class CartButton {
 
   buttonPushed = 'В корзине';
 
-  // id = this.id;
-
   renderButton(id) {
     const productStore = localStorageUtil.getProducts();
 

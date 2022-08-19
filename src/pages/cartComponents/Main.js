@@ -1,7 +1,6 @@
 import { localStorageUtil } from '../../components/utils/localStorageUtil';
 import { item } from './BasketItem';
 import { createCartElements } from './createCartElements';
-import { form } from './Form';
 import { total } from './Total';
 
 export class Main {
@@ -24,7 +23,6 @@ export class Main {
       basket.append(item.render(el)),
     );
     main.appendChild(total.render());
-    main.appendChild(form.render());
     return main;
   }
 }

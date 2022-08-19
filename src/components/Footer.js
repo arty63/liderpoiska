@@ -1,6 +1,6 @@
 export class Footer {
-  render() {
-    const wrapper = document.getElementById('wrapper');
+  render(location) {
+    const wrapper = document.querySelector(location);
     const footer = document.createElement('footer');
     wrapper.appendChild(footer);
     footer.classList.add('footer');
