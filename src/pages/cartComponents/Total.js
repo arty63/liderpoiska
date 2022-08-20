@@ -6,7 +6,7 @@ class Total {
     const arr = [];
     count.forEach(el => arr.push(el.textContent.replace(' ₽', '') - 0));
     const res = arr.reduce((sum, current) => sum + current, 0);
-    total.textContent = `${res} ₽`;
+    total.textContent = `Сумма ${res} ₽`;
     return total;
   }
 
@@ -23,7 +23,7 @@ class Total {
       arr.push(sum1[i] * arr1[i]);
     }
     const res = arr.reduce((summa, current) => summa + current, 0);
-    total.textContent = `${res} ₽`;
+    total.textContent = `Сумма ${res} ₽`;
   }
 }
 export const total = new Total();

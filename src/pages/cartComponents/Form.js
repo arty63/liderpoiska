@@ -1,3 +1,5 @@
+import { darkBg } from './DarkBackground';
+import { buttonSubmite } from './phone';
 import { popup } from './Popup';
 
 class Form {
@@ -32,9 +34,12 @@ class Form {
     inputPhone.autocomplete = 'off';
     inputPhone.required = true;
     inputPhone.maxLength = 22;
+    inputPhone.minLength = 22;
+
+    inputPhone.pattern = /((?:\+7|8)\ \(\d{3}\)\ \d{3}\ \-\ \d{2}\ \-\ \d{2})/g;
 
     const inputEmail = document.createElement('input');
-    inputPhone.id = 'input-email';
+    inputEmail.id = 'input-email';
     inputEmail.type = 'email';
     inputEmail.placeholder = 'Email';
     inputEmail.classList.add('person-form__place');
@@ -45,19 +50,24 @@ class Form {
     btnSubmit.type = 'submite';
     btnSubmit.classList.add('person-form__button');
     btnSubmit.textContent = 'оформить заказ';
+    btnSubmit.disabled = false;
+
     btnSubmit.addEventListener(
-      'click',
-      popup.render(inputText.value, inputPhone.value, inputEmail.value),
+      'click', (event) => {
+        event.preventDefault();
+        popup.render(inputText.value, inputPhone.value, inputEmail.value);
+        
+      }
     );
 
     inputPhone.addEventListener('focus', _ => {
       if (!/^\+\d*$/.test(inputPhone.value)) inputPhone.value = '+7';
     });
 
-    inputPhone.addEventListener('keypress', e => {
-      if (!/\d/.test(e.key)) e.preventDefault();
+    inputPhone.addEventListener('keypress', event => {
+      if (!/\d/.test(event.key)) event.preventDefault();
       if (inputPhone.value.length == 2) {
-        inputPhone.value += ' (';
+      inputPhone.value += ' (';
       }
       if (inputPhone.value.length == 7) {
         inputPhone.value += ') ';
@@ -68,12 +78,9 @@ class Form {
       if (inputPhone.value.length == 17) {
         inputPhone.value += ' - ';
       }
-      if (inputEmail.value && inputText.value && /\d/.test(inputPhone.value)) {
-        btnSubmit.disabled = false;
-      } else {
-        btnSubmit.disabled = true;
-      }
+      buttonSubmite();
     });
+  
 
     boxForm.appendChild(title);
     title.appendChild(form);
@@ -81,7 +88,6 @@ class Form {
     form.appendChild(inputPhone);
     form.appendChild(inputEmail);
     form.appendChild(btnSubmit);
-
     return boxForm;
   }
 }
