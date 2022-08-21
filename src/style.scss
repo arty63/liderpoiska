@@ -754,7 +754,24 @@ $color-blue: #296DC1;
         
         transition: 0.5s;
         cursor: pointer;
-    
+        &::before{
+            content: "";
+            padding: 1px;
+            width: 17px;
+            background-color: #000;
+            transform: rotate(135deg);
+            position: absolute;
+            transition: 0.5s;
+        }
+        &::after{
+            content: "";
+            padding: 1px;
+            width: 17px;
+            background-color: #000;
+            transform: rotate(-135deg);
+            position: absolute;
+            transition: 0.5s;
+        }
     }
     &::before{
         content: "";

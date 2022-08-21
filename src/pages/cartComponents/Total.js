@@ -2,6 +2,7 @@ class Total {
   render() {
     const total = document.createElement('p');
     total.classList.add('count-of-price__count');
+    total.id = 'total';
     const count = document.querySelectorAll('.goods__price');
     const arr = [];
     count.forEach(el => arr.push(el.textContent.replace(' ₽', '') - 0));
